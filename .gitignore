@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.csv
+logs/
+airflow.db
+airflow.cfg
+.DS_Store
