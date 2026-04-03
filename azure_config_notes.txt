@@ -1,0 +1,4 @@
+# Azure Data Lake Storage (ADLS) Gen2 Setup
+Container: weather-raw-data
+Path: /landing/
+Authentication: Account Key (Stored in Airflow Connections)
