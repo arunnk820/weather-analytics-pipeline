@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_weather
+    description: "Cleaned and unit-converted weather observations. Temperature in °C, wind speed in km/h."
+    columns:
+      - name: city
+        description: "City name, normalised to title case"
+        tests:
+          - not_null
+      - name: temperature_celsius
+        description: "Temperature in degrees Celsius (converted from °F)"
+        tests:
+          - not_null
+      - name: humidity_pct
+        description: "Relative humidity as a percentage (0–100)"
+        tests:
+          - not_null
+      - name: wind_speed_kmh
+        description: "Wind speed in km/h (converted from mph)"
+        tests:
+          - not_null
+      - name: weather_condition
+        description: "Lowercase weather description (e.g. 'clear sky', 'light rain')"
+      - name: ingested_at
+        description: "Timestamp of ingestion into Snowflake"
+        tests:
+          - not_null

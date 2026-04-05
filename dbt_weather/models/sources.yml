@@ -1,0 +1,23 @@
+version: 2
+
+sources:
+  - name: analytics
+    description: "Flattened weather data from the Snowflake ingestion pipeline"
+    database: WEATHER_DB
+    schema: ANALYTICS
+    tables:
+      - name: weather_flattened
+        description: "Raw flattened weather observations — one row per API call per city"
+        columns:
+          - name: city
+            description: "City name from OpenWeatherMap API"
+          - name: temperature
+            description: "Temperature in Fahrenheit (imperial units from API)"
+          - name: humidity
+            description: "Humidity percentage"
+          - name: wind_speed
+            description: "Wind speed in mph (imperial units from API)"
+          - name: weather_condition
+            description: "Text description of weather condition"
+          - name: ingested_at
+            description: "Timestamp when the record was ingested into Snowflake"

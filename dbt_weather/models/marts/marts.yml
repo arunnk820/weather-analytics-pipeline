@@ -1,0 +1,54 @@
+version: 2
+
+models:
+  - name: fct_weather_daily
+    description: "Daily weather aggregation per city — avg/min/max temperature, avg humidity, avg wind speed"
+    columns:
+      - name: city
+        description: "City name"
+        tests:
+          - not_null
+      - name: observation_date
+        description: "Calendar date of observations"
+        tests:
+          - not_null
+      - name: avg_temperature
+        description: "Average temperature in °C for the day"
+      - name: min_temperature
+        description: "Minimum temperature in °C for the day"
+      - name: max_temperature
+        description: "Maximum temperature in °C for the day"
+      - name: avg_humidity
+        description: "Average humidity percentage for the day"
+      - name: avg_wind_speed
+        description: "Average wind speed in km/h for the day"
+      - name: record_count
+        description: "Number of observations recorded for the day"
+
+  - name: fct_weather_alerts
+    description: "Weather observations that exceed at least one safety threshold (temp > 35°C, wind > 50 km/h, humidity > 90%)"
+    columns:
+      - name: city
+        description: "City name"
+        tests:
+          - not_null
+      - name: temperature_celsius
+        description: "Temperature in °C"
+      - name: humidity_pct
+        description: "Humidity percentage"
+      - name: wind_speed_kmh
+        description: "Wind speed in km/h"
+      - name: weather_condition
+        description: "Weather description"
+      - name: ingested_at
+        description: "Ingestion timestamp"
+        tests:
+          - not_null
+      - name: is_high_temp
+        description: "TRUE if temperature exceeds 35°C"
+      - name: is_high_wind
+        description: "TRUE if wind speed exceeds 50 km/h"
+      - name: is_high_humidity
+        description: "TRUE if humidity exceeds 90%"
+      - name: has_alert
+        description: "TRUE if any alert threshold is exceeded"

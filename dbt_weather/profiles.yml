@@ -1,0 +1,17 @@
+# profiles.yml — Local development profile for dbt
+# For dbt Cloud: this file is NOT needed (Cloud manages connections via the UI).
+# For local CLI: place this at ~/.dbt/profiles.yml or keep here and run with --profiles-dir .
+
+weather_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: LGHTGVX-OK61242
+      user: ARUNNK820
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: ACCOUNTADMIN
+      database: WEATHER_DB
+      warehouse: COMPUTE_WH
+      schema: ANALYTICS
+      threads: 4
