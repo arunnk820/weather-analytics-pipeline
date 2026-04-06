@@ -28,6 +28,13 @@ The final processed data is exposed via an analytics schema in Snowflake, allowi
 
 ![Power BI Dashboard](images/power_bi_dashboard.png)
 
+### 3. dbt Transformation Workflow
+The project follows a modular dbt workflow to ensure data quality and reliability before the data hits the Power BI dashboard:
+
+* **Staging:** Initial cleaning, renaming, and unit conversions (e.g., Fahrenheit to Celsius).
+* **Marts:** Business-level aggregations and alerting logic for final consumption.
+* **Testing:** Automated schema tests (`not_null`, `unique`) run on every build to prevent data gaps.
+* **Documentation:** Auto-generated documentation and lineage tracking for full data transparency.
 ---
 
 ## How to Run This Project
